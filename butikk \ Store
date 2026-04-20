@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+
+    public class Poststed
+        {
+            public int PostNr { get; set; }
+            public string PoststedNavn { get; set; }
+
+            public List<Kunde> Kunder { get; set; }
+        }
+
+    public class Kunde
+        {
+            public int KNr { get; set; }
+            public string Navn { get; set; }
+            public string Adresse { get; set; }
+            public int PostNr { get; set; }
+            public string KontaktPerson { get; set; }
+            public string Telefon { get; set; }
+
+            public Poststed Poststed { get; set; }
+            public List<Ordre> Ordrer { get; set; }
+        }
+
+    public class Ordre
+        {
+            public int ONr { get; set; }
+            public int KNr { get; set; }
+            public DateTime Dato { get; set; }
+            public decimal OrdreSum { get; set; }
+
+            public Kunde Kunde { get; set; }
+            public List<Ordrelinje> Ordrelinjer { get; set; }
+        }
+
+    public class Ordrelinje
+        {
+            public int ONr { get; set; }
+            public int VNr { get; set; }
+            public int Antall { get; set; }
+            public decimal OrdreLinjeSum { get; set; }
+
+            public Ordre Ordre { get; set; }
+            public Vare Vare { get; set; }
+        }
+
+    public class Vare
+        {
+            public int VNr { get; set; }
+            public string VareNavn { get; set; }
+            public decimal Pris { get; set; }
+
+            public List<Ordrelinje> Ordrelinjer { get; set; }
+        }
